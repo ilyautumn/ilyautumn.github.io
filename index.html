@@ -3,65 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Discord Bot Developer Portfolio</title>
+    <title>QC's Discord Bot Developer Portfolio</title>
     <style>
+        :root {
+            --primary-color: #7289da;
+            --secondary-color: #99aab5;
+            --background-color: #2c2f33;
+            --text-color: #ffffff;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #7289da, #99aab5, #2c2f33);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--background-color));
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             text-align: center;
+            margin-bottom: 1rem;
         }
 
         .project {
             background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .project:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .project-image {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
 
         .project-image:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .project-info {
@@ -73,100 +78,120 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
-            margin-top: 2rem;
+            margin: 3rem 0;
         }
 
         .skill {
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
+            padding: 0.7rem 1.2rem;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .contact {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
         }
 
         a {
-            color: #ffffff;
+            color: var(--text-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .project {
                 flex-direction: column;
+                text-align: center;
             }
 
             .project-image {
                 width: 100%;
                 height: auto;
+                max-width: 300px;
+                margin-bottom: 1rem;
             }
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Discord Bot Developer Portfolio</h1>
-        <h2>QC</h2>
+        <header>
+            <h1 class="fade-in">Discord Bot Developer Portfolio</h1>
+            <h2 class="fade-in">QC</h2>
+        </header>
 
-        <div class="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <img src="images/project1.png" alt="Project 1" class="project-image">
-                <div class="project-info">
-                    <h3>Key System Bot</h3>
-                    <p>Creates a hidden channel that you need to redeem to get access to by using a key.</p>
+        <main>
+            <section class="projects">
+                <h2 class="fade-in">Featured Projects</h2>
+                <div class="project fade-in">
+                    <img src="images/project1.png" alt="Key System Bot" class="project-image">
+                    <div class="project-info">
+                        <h3>Key System Bot</h3>
+                        <p>A sophisticated bot that creates a hidden channel accessible only through key redemption, enhancing server security and exclusivity.</p>
+                        <p><strong>Technologies used:</strong> Python, Discord API</p>
+                    </div>
                 </div>
-            </div>
-            <div class="project">
-                <img src="images/project2.png" alt="Project 2" class="project-image">
-                <div class="project-info">
-                    <h3>Invite Reward Bot</h3>
-                    <p>a Bot that allows user to gain credits by inviting users who stay and allowed to openly buy items in /stock using those credits ( admin & owner exclusive cmds ).</p>
+                <div class="project fade-in">
+                    <img src="images/project2.png" alt="Invite Reward Bot" class="project-image">
+                    <div class="project-info">
+                        <h3>Invite Reward Bot</h3>
+                        <p>An innovative bot that gamifies user engagement by rewarding credits for successful invites. Users can spend credits on items listed in /stock, with exclusive admin commands for management.</p>
+                        <p><strong>Key features:</strong> Credit system, invite tracking, item shop</p>
+                    </div>
                 </div>
-            </div>
-            <div class="project">
-                <img src="path/to/project3-image.jpg" alt="Project 3" class="project-image">
-                <div class="project-info">
-                    <h3>Waiting For Project 3</h3>
-                    <p>I only post bigger projects.</p>
+                <div class="project fade-in">
+                    <img src="images/coming-soon.jpg" alt="Future Project" class="project-image">
+                    <div class="project-info">
+                        <h3>Next Big Project</h3>
+                        <p>Stay tuned for my next major project. I focus on creating impactful, large-scale Discord bots that solve real community needs.</p>
+                        <p><em>Coming soon...</em></p>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="skills">
-            <div class="skill">Python</div>
-            <div class="skill">API Integration</div>
-        </div>
+            <section class="skills fade-in">
+                <div class="skill">Python</div>
+                <div class="skill">Discord API</div>
+                <div class="skill">API Integration</div>
+                <div class="skill">HTML</div>
+                <div class="skill">Bot Security</div>
+            </section>
 
-        <div class="contact">
-            <h2>Contact</h2>
-            <p>Discord: @qcbu</p>
-        </div>
+            <section class="contact fade-in">
+                <h2>Get in Touch</h2>
+                <p>Interested in collaborating or have a project in mind? Let's connect!</p>
+                <p>Discord: <a href="https://discord.com/users/qcbu" target="_blank">@qcbu</a></p>
+            </section>
+        </main>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const projects = document.querySelectorAll('.project');
-            projects.forEach((project, index) => {
-                project.style.animationDelay = `${index * 0.2}s`;
-                project.style.animation = 'fadeIn 1s ease forwards';
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
             });
         });
     </script>
